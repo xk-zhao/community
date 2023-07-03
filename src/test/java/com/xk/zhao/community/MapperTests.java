@@ -1,8 +1,10 @@
 package com.xk.zhao.community;
 
 import com.xk.zhao.community.dao.DiscussPostMapper;
+import com.xk.zhao.community.dao.LoginTicketMapper;
 import com.xk.zhao.community.dao.UserMapper;
 import com.xk.zhao.community.entity.DiscussPost;
+import com.xk.zhao.community.entity.LoginTicket;
 import com.xk.zhao.community.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,32 @@ import java.util.List;
 public class MapperTests {
     @Autowired
     private DiscussPostMapper discussPostMapper;
+
+    @Autowired
+    private LoginTicketMapper loginTicketMapper;
+    @Test
+    public void testLoginTicket(){
+        LoginTicket loginTicket = new LoginTicket();
+        loginTicket.setUserId(101);
+        loginTicket.setTicket("abc");
+        loginTicket.setStatus(0);
+        loginTicket.setExpired(new Date(System.currentTimeMillis()+1000*60*10));
+        int row = loginTicketMapper.insertLoginTicket(loginTicket);
+        System.out.println(row);
+    }
+
+    @Test
+    public void testSelect(){
+        LoginTicket l = loginTicketMapper.selectByTicket("abc");
+        System.out.println(l);
+        loginTicketMapper.updateStatus("abc",1);
+
+        l = loginTicketMapper.selectByTicket("abc");
+        System.out.println(l);
+    }
+
+
+
     @Test
     public void testSelectPosts(){
         List<DiscussPost> discussPostList = discussPostMapper.selectDiscussPosts(149,0,10);

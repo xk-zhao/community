@@ -1,7 +1,7 @@
 server:
   port: 8080
   servlet:
-    context-path:
+    context-path: /xk
 spring:
   thymeleaf:
     cache=false
@@ -16,6 +16,19 @@ spring:
       maximum-pool-size: 15
       minimum-idle: 5
       idle-timeout: 30000
+  # 邮箱配置
+
+  mail:
+    host: smtp.163.com
+    port: 465
+    username: xk_zhao_work@163.com
+    password: BCWXSYUKUAVUNKNB
+    protocol: smtps
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable=true:
 # mybatis
 mybatis:
   # mapper地址
@@ -28,4 +41,9 @@ mybatis:
     # 驼峰转下划线
     map-underscore-to-camel-case: true
     # 打印sql语句
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# community
+community:
+  path:
+    domain: http://localhost:8080
