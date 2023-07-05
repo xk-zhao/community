@@ -9,8 +9,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/community?charaterEncoding=utf-8&useSSL=false&serverTimezone=Hongkong
-    username: root
-    password: 123456
+    username: ***
+    password: ******
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       maximum-pool-size: 15
@@ -21,8 +21,8 @@ spring:
   mail:
     host: smtp.163.com
     port: 465
-    username: xk_zhao_work@163.com
-    password: BCWXSYUKUAVUNKNB
+    username: ****
+    password: ******
     protocol: smtps
     properties:
       mail:
